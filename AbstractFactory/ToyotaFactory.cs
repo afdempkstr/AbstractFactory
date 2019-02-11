@@ -93,6 +93,11 @@ namespace AbstractFactory
             Engine = engine;
         }
 
+        public void StartEngine()
+        {
+            Engine.Start();
+        }
+
         public override string ToString()
         {
             return $"{Body} with a weight of {Body.Weight}kg and a {Engine}";
