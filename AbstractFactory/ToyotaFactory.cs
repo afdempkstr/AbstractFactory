@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,32 @@ namespace AbstractFactory
     {
         abstract public Body MakeBody();
         abstract public Engine MakeEngine();
+    }
+
+    class YarisFactory : ToyotaFactory
+    {
+        public override Body MakeBody()
+        {
+            return new YarisBody();
+        }
+
+        public override Engine MakeEngine()
+        {
+            return new YarisEngine();
+        }
+    }
+
+    class AvensisFactory : ToyotaFactory
+    {
+        public override Body MakeBody()
+        {
+            return new AvensisBody();
+        }
+
+        public override Engine MakeEngine()
+        {
+            return new AvensisEngine();
+        }
     }
 
     abstract class Body
