@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AbstractFactory
 {
-    //AbstractFactory
+    //Abstract Factory
     abstract class ToyotaFactory
     {
         abstract public Body MakeBody();
         abstract public Engine MakeEngine();
     }
 
+    //Concrete Factory A
     class YarisFactory : ToyotaFactory
     {
         public override Body MakeBody()
@@ -27,6 +23,7 @@ namespace AbstractFactory
         }
     }
 
+    // Concrete Factory B
     class AvensisFactory : ToyotaFactory
     {
         public override Body MakeBody()
@@ -40,11 +37,13 @@ namespace AbstractFactory
         }
     }
 
+    // Abstract Product A
     abstract class Body
     {
         public int Weight { get; protected set; }
     }
 
+    // Concrete Product A1
     class YarisBody : Body
     {
         public YarisBody()
@@ -53,6 +52,7 @@ namespace AbstractFactory
         }
     }
 
+    // Concrete Product A2
     class AvensisBody : Body
     {
         public AvensisBody()
@@ -61,11 +61,13 @@ namespace AbstractFactory
         }
     }
 
+    // Abstract Product B
     abstract class Engine
     {
         public abstract void Start();
     }
 
+    // Concrete Product B1
     class YarisEngine : Engine
     {
         public override void Start()
@@ -74,6 +76,7 @@ namespace AbstractFactory
         }
     }
 
+    // Concrete Product B2
     class AvensisEngine : Engine
     {
         public override void Start()
@@ -104,6 +107,7 @@ namespace AbstractFactory
         }
     }
 
+    // Client
     class ToyotaAssemblyLine
     {
         private ToyotaFactory _factory;
